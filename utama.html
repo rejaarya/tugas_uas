@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seraphim Timeworks</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+        .hero-section {
+            background-image: url('logo.png'); /* Ganti dengan gambar latar belakang */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4); /* Semi-transparan overlay */
+        }
+        .hero-content {
+            position: relative;
+            text-align: center;
+            color: #fff;
+            z-index: 1;
+        }
+        .hero-logo {
+            max-width: 250px; /* Sesuaikan dengan ukuran logo */
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in;
+        }
+        .hero-title {
+            font-size: 4rem;
+            margin: 0;
+            font-weight: bold;
+            animation: fadeIn 2s 0.5s ease-in;
+        }
+        .hero-subtitle {
+            font-size: 1.8rem;
+            margin-top: 10px;
+            animation: fadeIn 2s 1s ease-in;
+        }
+        .hero-button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #fff;
+            background-color: #f39c12; /* Warna tombol */
+            text-decoration: none;
+            border-radius: 30px; /* Bulatkan tombol */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .hero-button:hover {
+            background-color: #e67e22;
+            transform: translateY(-5px);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Welcome to Seraphim Timeworks</h1>
+                <p class="hero-subtitle">Where Time Meets Serenity</p>
+                <a href="index.html" class="hero-button">Shop Now</a>
+            </div>
+        </div>
+    </header>
+</body>
+</html>

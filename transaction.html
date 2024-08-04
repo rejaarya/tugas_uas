@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+    <style>
+        /* Existing styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+        header, nav, footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 20px;
+        }
+        aside {
+            flex: 1;
+            min-width: 200px;
+            padding: 20px;
+            background-color: #ddd;
+            margin: 10px;
+        }
+        main.content {
+            flex: 2;
+            min-width: 300px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+            color: #333;
+        }
+        input, select {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <header><marquee>SERAPHIM TIMEWORKS</marquee></header>
+    <nav>TRANSAKSI</nav>
+    <div class="container">
+        <table border="0" width="50%" align="center">
+            <tr>
+                <td>
+                    <main class="content">
+                        <h1><center>Transaksi</h1>
+                        <form id="transaction-form" onsubmit="saveFormData(event)">
+                            <label for="name">Nama:</label>
+                            <input type="text" id="name" name="name" required>
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                            <label for="product">Produk:</label>
+                            <select id="product" name="product">
+                                <option value="NAVIFORCE Watch">NAVIFORCE Watch</option>
+                                <option value="OLEVS Watch">OLEVS Watch</option>
+                                <option value="FERRAO Watch">FERRAO Watch</option>
+                                <option value="ORLANDO Watch">ORLANDO Watch</option>
+                                <option value="QUICK SILVER Watch">QUICK SILVER Watch</option>
+                            </select>
+                            <button type="submit">Checkout/Place Order</button>
+                        </form>
+                    </main>
+                </td>
+            </tr>
+        </table>
+        
+    </div>
+    <footer><marquee>SERAPHIM TIMEWORKS</marquee></footer>
+    <script>
+        function saveFormData(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const product = document.getElementById('product').value;
+            
+            localStorage.setItem('name', name);
+            localStorage.setItem('email', email);
+            localStorage.setItem('product', product);
+            
+            window.location.href = 'invoice.html';
+        }
+    </script>
+</body>
+</html>

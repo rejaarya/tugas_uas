@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+        .invoice-container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+        .invoice-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .invoice-header h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+        }
+        .invoice-header img {
+            width: 150px;
+        }
+        .invoice-details {
+            margin-bottom: 20px;
+        }
+        .invoice-details h2 {
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #555;
+        }
+        .invoice-details p {
+            margin: 5px 0;
+            color: #777;
+        }
+        .invoice-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .invoice-table th, .invoice-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .invoice-table th {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        .invoice-footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="invoice-container">
+        <div class="invoice-header">
+            <h1>Invoice</h1>
+            <img src="logo.png" alt="Company Logo">
+        </div>
+        <div class="invoice-details">
+            <h2>Billing Information</h2>
+            <p>Name: <span id="name">John Doe</span></p>
+            <p>Email: <span id="email">john.doe@example.com</span></p>
+            <p>Product: <span id="product">NAVIFORCE Watch</span></p>
+        </div>
+        <table class="invoice-table">
+            <thead>
+                <tr>
+                    <th>Barang</th>
+                    <th>Deskripsi</th>
+                    <th>Jumlah</th>
+                    <th>Harga</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="product-name">NAVIFORCE Watch</td>
+                    <td id="product-desc">Luxury men's watch</td>
+                    <td>1</td>
+                    <td id="product-price">Rp1.500.000</td>
+                    <td id="product-total">Rp1.500.000</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" style="text-align: right;"><strong>Grand Total</strong></td>
+                    <td id="grand-total"><strong>Rp1.500.000</strong></td>
+                </tr>
+            </tfoot>
+        </table>
+        <div class="invoice-footer">
+            <p>Thank you for your purchase!</p>
+            <p>Jika ada kendala transaksi bisa hubungi kami seraphimtime@gmail.com atau hubungi costumer service 021-34567 </p>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const name = localStorage.getItem('name');
+            const email = localStorage.getItem('email');
+            const product = localStorage.getItem('product');
+
+            document.getElementById('name').textContent = name || 'John Doe';
+            document.getElementById('email').textContent = email || 'john.doe@example.com';
+            document.getElementById('product').textContent = product || 'NAVIFORCE Watch';
+
+            const productDetails = {
+                "NAVIFORCE Watch": { desc: "Luxury men's watch", price: 1500000 },
+                "OLEVS Watch": { desc: "Stylish women's watch", price: 2000000 },
+                "FERRAO Watch": { desc: "Rugged outdoor watch", price: 900000 },
+                "ORLANDO Watch": { desc: "Classic watch with modern design", price: 1800000 },
+                "QUICK SILVER Watch": { desc: "Sporty and durable watch", price: 800000 }
+            };
+
+            const selectedProduct = productDetails[product];
+            const formattedPrice = selectedProduct.price.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' });
+
+            document.getElementById('product-name').textContent = product || 'NAVIFORCE Watch';
+            document.getElementById('product-desc').textContent = selectedProduct.desc;
+            document.getElementById('product-price').textContent = formattedPrice;
+            document.getElementById('product-total').textContent = formattedPrice;
+            document.getElementById('grand-total').textContent = formattedPrice;
+        });
+    </script>
+</body>
+</html>
